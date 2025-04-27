@@ -1,0 +1,32 @@
+# Modify name if deploying multiple instances
+name = "sub-box"
+
+main = ".open-next/worker.js"
+
+compatibility_date = "2024-09-26"
+compatibility_flags = ["nodejs_compat"]
+
+minify = true
+
+assets = { directory = ".open-next/assets", binding = "ASSETS" }
+
+# [placement]
+# mode = "smart"
+
+# Environment variables
+# Modify these to use the correct environment variables
+[vars]
+ADMIN_USERNAME = "admin"
+ADMIN_PASSWORD = "admin" # Change this to a secure password
+JWT_SECRET = "sdw231wew34444qw4ewewq24313" # Change this to a secure secret key
+SESSION_TAG = "0"
+SESSION_DURATION = "7d"
+DEPLOY_TARGET = "cloudflare"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "prod-sub-box-db" # Change this to the name of your D1 database
+database_id = "22cc508f-35ca-4637-9296-20ffb82ea515" # wrangler d1 info <YOUR_DATABASE_NAME>
+
+[observability.logs]
+enabled = true
